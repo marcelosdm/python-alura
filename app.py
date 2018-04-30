@@ -31,12 +31,30 @@ def procurar(nomes):
         print ('Nome %s foi encontrado') % (nome_procurar)
     else:
         print ('O nome %s não foi cadastrado') % (nome_procurar)
+    
+def procurar_rgx(nomes):
+    print('Digite a expressão regular')
+    regex = raw_input()
+    nomes_concat = ' '.join(nomes)
+    resultado = re.findall(regex, nomes_concat)
+    print(resultado)
+    
 
 def menu():
     nomes = []
     escolha = ''
     while(escolha != '0'):
-        print 'Digite 1 para cadastrar, 2 para listar, 3 para remover, 4 para alterar, 5 para procurar, 0 para encerrar'
+        print ''
+        print '--------------------'
+        print 'Digite 1 para cadastrar'
+        print 'Digite 2 para listar' 
+        print 'Digite 3 para remover'
+        print 'Digite 4 para alterar'
+        print 'Digite 5 para procurar'
+        print 'Digite 6 para regex'
+        print 'Digite 0 para encerrar'
+        print '--------------------'
+
         escolha = raw_input()
 
         if(escolha == '1'):
@@ -49,5 +67,7 @@ def menu():
             alterar(nomes)
         if(escolha == '5'):
             procurar(nomes)
+        if(escolha == '6'):
+            procurar_rgx(nomes)
 
 menu()
